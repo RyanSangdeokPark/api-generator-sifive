@@ -114,12 +114,12 @@ def vcsCompileOptsExtract waves dut =
   def extraArgs =
     NamedArg "-full64",             NamedArg "-notice",      NamedArg "-error=VCM-HFUFR",
     NamedArg "-error=LFCOR",        NamedArg "-error=CFCOR", NamedArg "-error=BMII",
-    NamedArg "-timescale=1ns/10ps", NamedArg "-quiet",       NamedArg "+vcs+lic+wait",
+    NamedArg "-quiet",              NamedArg "+vcs+lic+wait",
     NamedArg "-Mupdate",            NamedArg "+vc+list",     NamedArg "-sverilog",
     NamedArg "-ntb_opts",           NamedArg "uvm-1.2",      NamedArg "-j4",
     NamedArg "+rad",                NamedArg "-hsopt=gates", NamedArg "-O3",
     NamedArg "-reportstats",        NamedArg "-assert",      NamedArg "svaext",
-    NamedArg "-LDFLAGS -lrt",       Nil
+    Nil
 
   def withWavesOptions opts =
     if waves
@@ -127,8 +127,6 @@ def vcsCompileOptsExtract waves dut =
       def withExtraArgs =
         NamedArg "-kdb",
         NamedArg "-lca",
-        NamedArg "-debug_access+r+line+class+driver",
-        NamedArg "-LDFLAGS",
         NamedArg "-fno-lto",
         _
       def withDefines =
